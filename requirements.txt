@@ -1,0 +1,11 @@
+hydra-core==1.2.0
+matplotlib==3.5.1
+numpy==1.22.3
+omegaconf==2.2.2
+pandas==1.4.3
+Pillow==9.2.0
+pytorch_lightning==1.6.5
+scikit_learn==1.1.2
+torch==1.13.0.dev20220729
+torchvision==0.2.2
+tqdm==4.64.0

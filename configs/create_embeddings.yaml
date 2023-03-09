@@ -1,0 +1,15 @@
+category_name: "Clothing_Shoes_and_Jewelry" # Toys_and_Games/Clothing_Shoes_and_Jewelry
+data_processed_dir: /Users/kbibas/datasets/fbt_research/data/processed
+data_final_dir: /Users/kbibas/datasets/fbt_research/data/final
+
+num_workers: 2
+batch_size: 256
+
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: ../outputs/embeddings_${category_name}_${now:%Y%m%d_%H%M%S}
+  sweep:
+    dir: ../outputs/
+    subdir: embeddings_${category_name}_${now:%Y%m%d_%H%M%S}_${hydra.job.num}

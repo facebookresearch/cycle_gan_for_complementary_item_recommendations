@@ -1,0 +1,85 @@
+# @package _global_
+defaults:
+  - wandb: defaults
+  - _self_
+
+data_dir: /Users/kbibas/datasets/fbt_research/data/final
+category_name: ""
+model_weight_dir: ""
+
+category_names:
+  - Clothing_Shoes_and_Jewelry
+  - Clothing_Shoes_and_Jewelry
+  - Clothing_Shoes_and_Jewelry
+  - Clothing_Shoes_and_Jewelry
+  - Clothing_Shoes_and_Jewelry
+  - Toys_and_Games
+  - Toys_and_Games
+  - Toys_and_Games
+  - Toys_and_Games
+  - Toys_and_Games
+  - Home_and_Kitchen
+  - Home_and_Kitchen
+  - Home_and_Kitchen
+  - Home_and_Kitchen
+  - Home_and_Kitchen
+
+model_gan_weight_dirs:
+  - "../outputs/train_Clothing_Shoes_and_Jewelry_20220825_202550" # GAN
+  - "../outputs/train_ae2triplet_Clothing_Shoes_and_Jewelry_20220825_225728" # Triplet only
+  - "../outputs/train_clf_and_cycle__gan_Clothing_Shoes_and_Jewelry_20221007_134103" # clf_and_cycle
+  - "../outputs/train_triplet_and_cycle__gan_Clothing_Shoes_and_Jewelry_20221007_095414" # triplet_and_cycle
+  - "../outputs/train_triplet_and_clf__gan_Clothing_Shoes_and_Jewelry_20221021_174258" # triplet_and_clf
+  - "../outputs/train_Toys_and_Games_20220826_121724" # GAN
+  - "../outputs/train_triplet_Toys_and_Games_20220826_094852" # Triplet only
+  - "../outputs/train_clf_and_cycle__gan_Toys_and_Games_20221007_164900" # clf_and_cycle
+  - "../outputs/train_triplet_and_cycle__gan_Toys_and_Games_20221007_154306" # triplet_and_cycle
+  - "../outputs/train_triplet_and_clf__gan_Toys_and_Games_20221021_194432" # triplet_and_clf
+  - "../outputs/train_Home_and_Kitchen_20220826_162307" # GAN
+  - "../outputs/train_triplet_Home_and_Kitchen_20220827_133638" # Triplet only
+  - "../outputs/train_clf_and_cycle__gan_Home_and_Kitchen_20221008_004028" # clf_and_cycle
+  - "../outputs/train_triplet_and_cycle__gan_Home_and_Kitchen_20221007_223510" # triplet_and_cycle
+  - "../outputs/train_triplet_and_clf__gan_Home_and_Kitchen_20221021_221451" # triplet_and_clf
+
+most_pop_category_names:
+  - Clothing_Shoes_and_Jewelry
+  - Toys_and_Games
+  - Home_and_Kitchen
+
+dcf_category_names:
+  - Clothing_Shoes_and_Jewelry
+  - Clothing_Shoes_and_Jewelry
+  - Toys_and_Games
+  - Toys_and_Games
+  - Home_and_Kitchen
+  - Home_and_Kitchen
+
+model_dcf_weight_dirs:
+  - "../outputs/train_easyneg_dcf_Clothing_Shoes_and_Jewelry_20221008_230154"
+  - "../outputs/train_dcf_Clothing_Shoes_and_Jewelry_20220924_201415"
+  - "../outputs/train_easyneg_dcf_Toys_and_Games_20221009_010259"
+  - "../outputs/train_dcf_Toys_and_Games_20220924_223451"
+  - "../outputs/train_easyneg_dcf_Home_and_Kitchen_20221009_033509"
+  - "../outputs/train_dcf_Home_and_Kitchen_20220925_011202"
+
+pcomp_category_names:
+  - Clothing_Shoes_and_Jewelry
+  - Toys_and_Games
+  - Home_and_Kitchen
+
+model_pcomp_weight_dirs:
+  - ../outputs/train_addone_pcomp_Clothing_Shoes_and_Jewelry_20221011_001438
+  - ../outputs/train_addone_pcomp_Toys_and_Games_20221011_021157
+  - ../outputs/train_addone_pcomp_Home_and_Kitchen_20221011_043955
+
+# Evaluation
+seed: 1234
+num_workers: 4
+batch_size: 512
+top_k: [1, 3, 5, 10]
+
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: /Users/kbibas/code/fbt_research/outputs/analysis_reults

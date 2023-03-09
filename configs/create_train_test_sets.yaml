@@ -1,0 +1,18 @@
+category_name: "Clothing_Shoes_and_Jewelry" # Toys_and_Games/Clothing_Shoes_and_Jewelry
+data_raw_dir: /Users/kbibas/datasets/fbt_research/data/raw
+data_processed_dir: /Users/kbibas/datasets/fbt_research/data/processed
+data_final_dir: /Users/kbibas/datasets/fbt_research/data/final
+
+category_freq_threshold: 50
+train_set_ratio: 0.8
+price_n_bins: 20
+seed: 1
+
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: ../outputs/process_meta_${category_name}_${now:%Y%m%d_%H%M%S}
+  sweep:
+    dir: ../outputs/
+    subdir: process_meta_${category_name}_${now:%Y%m%d_%H%M%S}_${hydra.job.num}

@@ -1,0 +1,30 @@
+# @package _global_
+defaults:
+  - wandb: defaults
+  - _self_
+
+# Data
+category_name: "Clothing_Shoes_and_Jewelry" # Toys_and_Games/Clothing_Shoes_and_Jewelry
+data_dir: /Users/kbibas/datasets/fbt_research/data/final
+train_ratio: 0.8 # 80% samples for trainning
+
+# Optimization
+dropout_rate: 0.2
+weight_decay: 1e-4
+margin: 0.25 # For triplet loss
+epochs: 100
+lr: 0.01
+milestones: [10, 80]
+batch_size: 512
+num_workers: 4
+
+seed: 1234
+
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: ../outputs/train_classifier_${category_name}_${now:%Y%m%d_%H%M%S}
+  sweep:
+    dir: ../outputs/
+    subdir: train_classifier_${category_name}_${now:%Y%m%d_%H%M%S}_${hydra.job.num}

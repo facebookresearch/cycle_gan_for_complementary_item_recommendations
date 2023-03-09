@@ -1,0 +1,11 @@
+category_name: "Clothing_Shoes_and_Jewelry" # Toys_and_Games/Clothing_Shoes_and_Jewelry
+data_dir: /data/fbt_research/data
+
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: ../outputs/download_imgs_${category_name}_${now:%Y%m%d_%H%M%S}
+  sweep:
+    dir: ../outputs/
+    subdir: download_imgs_${category_name}_${now:%Y%m%d_%H%M%S}_${hydra.job.num}
